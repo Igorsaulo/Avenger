@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style2.css">
+</head>
+<body>
+    <main>
+        <div id="result">
+            <div id="text">
+                <h1>Resultados</h1>
+            </div>
+        </div>
+        <div class="imagconteiner">
+            {% for heroi in hero %}
+    <div class="imagens">
+        <p>{{heroi.name}}</p>
+        <img src="{{heroi.picture}}" alt="">
+        <p>{{heroi.history}}</p>
+        <form action="/{{ username }}" method="post">           
+            <button type="submit" id="name" name="name" value="{{heroi.name}}">Selecionar</button>
+        </form>  
+    </div>
+                {% endfor %}
+</div>
+    <div style="text-align:center;">
+        <form action="/{{ username }}">
+            <input type="submit" value="Cancelar">
+        </form>
+    </div>
+    </main>
+</body>
+</html>

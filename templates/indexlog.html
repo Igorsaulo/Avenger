@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <form method="post">
+            <input type="submit" name="name" value="Perfil">
+        </form>
+    </nav>
+    <main>
+        <div id="menssagem">
+            <div id="texto" style="background-color:black; opacity:0.7;">
+                <h1 style="text-align:center;">Escolha seus heróis</h1>
+            </div>
+        </div>
+        <div id="busca"><div><form action="/busca/{{ username }}" method="post">
+            <input type="text" id="name" name="name">
+            <input type="submit" value="Buscar">
+        </form></div>
+        </div>
+        <div class="imagconteiner">
+            {% for heroi in hero %}
+    <div class="imagens">
+        <form method="post">
+        <p>{{heroi.name}}</p>
+        <img src="{{heroi.picture}}" alt="">
+        <p>{{heroi.history}}</p>             
+            <button type="submit" class="botao" name="name" value="{{heroi.name}}">Selecionar</button>
+        </form>
+        <form action="/edit/{{ username }}/{{ heroi.id }}" method="get">
+            <button class="botao" type="submit"> Edtar</button>
+        </form>
+    </div>
+                {% endfor %}
+</div>
+    </main>
+</body>
+</html>

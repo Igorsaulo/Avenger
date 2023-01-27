@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avengers {{user}}</title>
+    <link rel="stylesheet" href="/static/css/style3.css">
+</head>
+<body>
+    <nav>
+        <div id="selecionar">
+            <form action="/{{ user }}">
+                <button type="submit"> Selecionar</button>
+            </form>
+        </div>
+    </nav>
+    <main>
+        <div id="texto">
+            <div id="textconteudo">
+                <h1>Bem Vindo Capitão</h1>
+                <h2>Esta é sua equipe</h2>
+            </div>
+        </div>
+        <div class="imagconteiner">
+            {% for heroi in heros %}
+                <div class="imagens">
+                <p>{{heroi.name}}</p>
+                <img src="{{heroi.picture}}" alt="">
+                <p>{{heroi.history}}</p>
+                <form method="post">
+                    <button type="submit" id="apagar" name="apagar" value="{{heroi.name}}">Deletar</button>
+                </form>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>

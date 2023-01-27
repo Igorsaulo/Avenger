@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <title>Vingadores</title>
+
+</head>
+<body>
+    <div id="fundo">
+    <nav>
+        <div class="botao">
+            <form action="http://127.0.0.1:5000/user/login">
+                <input class="entrar" type="submit" value="Login">
+            </form>
+        </div>
+        <div class="botão">
+            <form action="http://127.0.0.1:5000/register">
+                <input class="entrar" type="submit" value="registrar">
+            </form>
+        <div>
+    </nav>
+    <main>
+        <div id="texto">
+            <div id="menssagem">
+                <h1>Vingadores</h1>
+                <h2>Seus herois preferidos estão aqui</h2>
+                <h3>Escolha sua equipe para enfrentar as forças do mal</h3>
+            </div>
+        </div>
+    </div>
+    <div class="imagconteiner">
+    {% for heroi in hero %}
+    <div class="imagens">
+        <p>{{heroi.name}}</p>
+        <img src="{{heroi.picture}}" alt="">
+        <p>{{heroi.history}}</p>             
+    </div>
+                {% endfor %}
+    </div>
+    </main>
+    <footer>
+        Criado por Igor Miranda
+    </footer>
+    
+</body>
+</html>
